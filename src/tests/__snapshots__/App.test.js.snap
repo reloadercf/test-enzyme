@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test App snapshot App 1`] = `
+<div
+  className="App"
+>
+  <Titulo
+    eltitulo="Un titulo normal"
+  />
+  <p>
+    Algún cambio
+  </p>
+</div>
+`;

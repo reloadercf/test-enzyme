@@ -1,9 +1,19 @@
 import React from 'react';
-import { render } from '@testing-library/react';
-import App from './App';
+import {shallow} from 'enzyme'
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+import App from '../App';
+import Titulo from '../components/Titulo'
+
+describe("Test App",()=>{
+  test("snapshot App",()=>{
+    let elcomponente=shallow(<App />)
+    expect(elcomponente).toMatchSnapshot();
+  })
+  test("Test H1 to <Titulo/>",()=>{
+    let eltitulo="Burger queen pro"
+    let elcomponente=shallow(<Titulo eltitulo={eltitulo}/>)
+    let buscarH1=elcomponente.find("h1").html()
+    console.log(buscarH1)
+    expect(buscarH1).toBe(`<h1>${eltitulo}</h1>`)
+  })
+})
